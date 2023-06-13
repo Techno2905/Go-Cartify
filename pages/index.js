@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Product from "../components/Product";
-import { connectMongoose } from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
 import mongoose from "mongoose";
