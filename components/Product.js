@@ -9,16 +9,20 @@ export default function Product({ _id, name, price, description, pictures }) {
      }
 
      return (
-          <div className="w-64">
+          <div className="w-64 flex flex-col justify-between">
                <div className="bg-bg p-5 rounded-xl">
                     <img src={pictures} alt="" />
                </div>
                <div className="mt-2">
                     <h3 className="font-bold text-lg">{name}</h3>
                </div>
-               <p className="text-sm mt-1 leading-5">{description}</p>
-               <div className=" flex mt-1">
-                    <div className="text-2xl grow font-bold">${price}</div>
+               <div className="flex-grow">
+                    <p className="text-sm mt-1 leading-5 max-h-[5em] overflow-hidden">
+                         {description}
+                    </p>
+               </div>
+               <div className="flex mt-1">
+                    <div className="text-2xl font-bold">${price}</div>
                     <button
                          onClick={addProduct}
                          className="flex bg-primary text-white py-1 px-3 rounded-md"
