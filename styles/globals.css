@@ -48,6 +48,6 @@
      text-overflow: ellipsis;
      word-wrap: break-word;
      overflow: hidden;
-     max-height: 3em;
+     max-height: 2.5em;
      line-height: 1.2em;
 }
