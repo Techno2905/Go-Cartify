@@ -80,12 +80,13 @@ export default function Home({ products }) {
 
 export async function getServerSideProps() {
      console.log("entered lol");
-     // await connectMongoose();
-     // const products = await findAllProducts();
+     await connectMongoose();
+     console.log("connected to db");
+     const products = await findAllProducts();
+     console.log("got products");
      return {
-          props: { products: "adnasasdasdijha" },
-          // props: {
-          //      products: JSON.parse(JSON.stringify(products)),
-          // },
+          props: {
+               products: JSON.parse(JSON.stringify(products)),
+          },
      };
 }
