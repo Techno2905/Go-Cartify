@@ -17,9 +17,7 @@ export default function Product({ _id, name, price, description, pictures }) {
                     <h3 className="font-bold text-lg">{name}</h3>
                </div>
                <div className="flex-grow">
-                    <p className="text-sm mt-1 leading-5 max-h-[5em] overflow-hidden">
-                         {description}
-                    </p>
+                    <p className="text-sm mt-1 max-lines">{description}</p>
                </div>
                <div className="flex mt-1">
                     <div className="text-2xl font-bold grow">${price}</div>
