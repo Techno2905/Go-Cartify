@@ -15,7 +15,6 @@ export default async function handler(req, res) {
           siginingSerect
      );
      if (event?.type === "checkout.session.completed") {
-          console.log("completeeeeeeeeed");
           const metadata = event.data?.object?.metadata;
           const paymentStatus = event.data?.object?.payment_status;
           if (metadata?.orderId && paymentStatus === "paid") {
