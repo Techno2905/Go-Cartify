@@ -18,7 +18,7 @@ export default function Product({ _id, name, price, description, pictures }) {
                     />
                </div>
                <div className="mt-2">
-                    <h3 className="font-bold text-lg max-lines-title overflow-hidden">
+                    <h3 className="font-bold text-lg max-lines-title">
                          {name}
                     </h3>
                </div>
