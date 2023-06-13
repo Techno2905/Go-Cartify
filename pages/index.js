@@ -79,11 +79,13 @@ export default function Home({ products }) {
 }
 
 export async function getServerSideProps() {
+     console.log("entered lol");
      await connectMongoose();
      const products = await findAllProducts();
      return {
-          props: {
-               products: JSON.parse(JSON.stringify(products)),
-          },
+          props: { products: "adnasasdasdijha" },
+          // props: {
+          //      products: JSON.parse(JSON.stringify(products)),
+          // },
      };
 }
