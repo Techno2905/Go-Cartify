@@ -38,7 +38,7 @@ export default function Home({ products }) {
                               value={phrase}
                               onChange={(e) => setPhrase(e.target.value)}
                               type="text"
-                              placeholder={"Search.."}
+                              placeholder={"Search..."}
                               className="bg-gray-200 w-full py-2 px-4 rounded-xl focus:outline-none "
                          />
                     </div>
