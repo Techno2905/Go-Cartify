@@ -10,7 +10,7 @@ export default function Product({ _id, name, price, description, pictures }) {
 
      return (
           <div className="w-64 flex flex-col justify-between">
-               <div className="bg-graay p-5 rounded-xl">
+               <div className="bg-graay p-5 rounded-xl max-w-64 overflow: hidden">
                     <img className="rounded-xl" src={pictures} alt="" />
                </div>
                <div className="mt-2">
