@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import Footer from "./Footer";
 import { ProductsContext } from "./ProductsContext";
 
 export default function Layout({ children }) {
@@ -14,6 +13,9 @@ export default function Layout({ children }) {
 
      function continueShopping() {
           setSuccess(false);
+     }
+     function scrollToTop() {
+          window.scrollTo({ top: 0, behavior: "smooth" });
      }
 
      if (success) {
@@ -66,7 +68,25 @@ export default function Layout({ children }) {
      return (
           <div>
                <div className="p-5">{children}</div>
-               <Footer />
+               <button
+                    className="bg-primary fixed p-3 bottom-3 right-4 text-3xl text-white rounded-full"
+                    onClick={scrollToTop}
+               >
+                    <svg
+                         xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         strokeWidth={4.5}
+                         stroke="currentColor"
+                         className="w-6 h-6"
+                    >
+                         <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"
+                         />
+                    </svg>
+               </button>
           </div>
      );
 }

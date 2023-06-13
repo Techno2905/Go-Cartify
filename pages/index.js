@@ -3,9 +3,11 @@ import Product from "../components/Product";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
 import mongoose from "mongoose";
+import Nav from "../components/nav";
 
 export default function Home({ products }) {
      const [phrase, setPhrase] = useState("");
+
      const categoriesNames = [...new Set(products.map((p) => p.category))];
      if (phrase) {
           products = products.filter((p) =>
@@ -15,30 +17,34 @@ export default function Home({ products }) {
 
      return (
           <Layout>
-               <div className="flex items-center bg-gray-200 w-full py-2 px-4 rounded-xl">
-                    <svg
-                         xmlns="http://www.w3.org/2000/svg"
-                         fill="none"
-                         viewBox="0 0 24 24"
-                         strokeWidth={1.5}
-                         stroke="currentColor"
-                         className="w-6 h-6"
-                    >
-                         <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                         />
-                    </svg>
+               <div className="flex gap-2 py-2">
+                    <div className="flex items-center bg-gray-200 grow  px-4 rounded-xl">
+                         <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                         >
+                              <path
+                                   strokeLinecap="round"
+                                   strokeLinejoin="round"
+                                   d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                              />
+                         </svg>
 
-                    <input
-                         value={phrase}
-                         onChange={(e) => setPhrase(e.target.value)}
-                         type="text"
-                         placeholder={"Search.."}
-                         className="bg-gray-200 w-full py-2 px-4 rounded-xl focus:outline-none "
-                    />
+                         <input
+                              value={phrase}
+                              onChange={(e) => setPhrase(e.target.value)}
+                              type="text"
+                              placeholder={"Search.."}
+                              className="bg-gray-200 w-full py-2 px-4 rounded-xl focus:outline-none "
+                         />
+                    </div>
+                    <Nav />
                </div>
+
                <div>
                     {categoriesNames.map((categoryName) => (
                          <div key={categoryName}>
