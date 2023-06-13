@@ -3,6 +3,7 @@ import Product from "../components/Product";
 import { connectMongoose } from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
+import mongoose from "mongoose";
 
 export default function Home({ products }) {
      const [phrase, setPhrase] = useState("");
@@ -80,7 +81,7 @@ export default function Home({ products }) {
 
 export async function getServerSideProps() {
      console.log("entered lol");
-     await connectMongoose();
+     await mongoose.connect(process.env.MONGODB_URL);
      console.log("connected to db");
      const products = await findAllProducts();
      console.log("got products");
