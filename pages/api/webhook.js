@@ -4,6 +4,7 @@ import Order from "../../models/Order";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
+     console.log("webhook invoked");
      await connectMongoose();
      const siginingSerect = process.env.siginingSecret;
      const payload = await buffer(req);
