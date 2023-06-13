@@ -11,10 +11,14 @@ export default function Product({ _id, name, price, description, pictures }) {
      return (
           <div className="w-64 flex flex-col justify-between">
                <div className="bg-graay p-5 rounded-xl ">
-                    <img className="rounded-xl" src={pictures} alt="" />
+                    <img
+                         className="rounded-xl aspect-square overflow-hidden"
+                         src={pictures}
+                         alt=""
+                    />
                </div>
                <div className="mt-2">
-                    <h3 className="font-bold text-lg max-w-64 overflow: hidden">
+                    <h3 className="font-bold text-lg max-lines-title overflow-hidden">
                          {name}
                     </h3>
                </div>
