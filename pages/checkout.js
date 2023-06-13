@@ -13,7 +13,10 @@ export default function CheckoutPage() {
      const [pin, setPin] = useState("");
      useEffect(() => {
           const uniqIds = [...new Set(selectedProducts)];
-          fetch("/api/products?ids=" + uniqIds.join(","))
+          fetch(
+               "https://go-cartify.vercel.app/api/products?ids=" +
+                    uniqIds.join(",")
+          )
                .then((response) => response.json())
                .then((json) => setProductsInfos(json));
      }, [selectedProducts]);
@@ -134,7 +137,10 @@ export default function CheckoutPage() {
                               </div>
                          );
                     })}
-               <form action="/api/checkout" method="POST">
+               <form
+                    action="https://go-cartify.vercel.app/api/checkout"
+                    method="POST"
+               >
                     <div>
                          <input
                               required
