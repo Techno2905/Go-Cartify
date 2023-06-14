@@ -252,7 +252,7 @@ export default function CheckoutPage() {
                               value={selectedProducts.join(",")}
                          />
                          <div
-                              class="flex p-4 mb-2 mt-2 text-l text-white border border-purple-300 rounded-xl bg-purple-50 font-semibold"
+                              class="flex p-4 mb-2 mt-2  text-l font-semibold text-green-800 border border-green-300 rounded-xl bg-green-50"
                               role="info"
                          >
                               <svg
