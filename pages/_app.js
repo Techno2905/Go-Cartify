@@ -5,7 +5,7 @@ function MyApp({ Component, pageProps }) {
      return (
           <>
                <Head>
-                    <title>Your Website Title</title>
+                    <title>Go-Cartify</title>
                </Head>
                <ProductsContextProvider>
                     <Component {...pageProps} />
