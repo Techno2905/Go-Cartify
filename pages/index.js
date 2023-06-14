@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Product from "../components/Product";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
@@ -7,6 +7,21 @@ import Nav from "../components/Nav";
 
 export default function Home({ products }) {
      const [phrase, setPhrase] = useState("");
+     const [isNavVisible, setNavVisible] = useState(true);
+     const inputRef = useRef(null);
+
+     useEffect(() => {
+          document.addEventListener("click", handleClickOutside);
+          return () => {
+               document.removeEventListener("click", handleClickOutside);
+          };
+     }, []);
+
+     const handleClickOutside = (event) => {
+          if (inputRef.current && !inputRef.current.contains(event.target)) {
+               setNavVisible(true);
+          }
+     };
 
      const categoriesNames = [...new Set(products.map((p) => p.category))];
      if (phrase) {
@@ -15,10 +30,20 @@ export default function Home({ products }) {
           );
      }
 
+     const hideNav = () => {
+          const mediaQuery = window.matchMedia("(max-width: 768px)"); // Adjust the media query breakpoint as per your requirement
+          if (mediaQuery.matches) {
+               setNavVisible(false);
+          }
+     };
+
      return (
           <Layout>
                <div className="flex gap-2 py-2">
-                    <div className="flex items-center bg-gray-200 grow  px-4 rounded-xl">
+                    <div
+                         ref={inputRef}
+                         className="flex items-center bg-gray-200 grow  px-4 rounded-xl"
+                    >
                          <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -39,10 +64,11 @@ export default function Home({ products }) {
                               onChange={(e) => setPhrase(e.target.value)}
                               type="text"
                               placeholder={"Search..."}
-                              className="bg-gray-200 w-full py-2 px-4 rounded-xl focus:outline-none "
+                              className="bg-gray-200 w-full py-2 px-4 rounded-xl focus:outline-none"
+                              onClick={hideNav}
                          />
                     </div>
-                    <Nav />
+                    {isNavVisible && <Nav />}
                </div>
 
                <div>
