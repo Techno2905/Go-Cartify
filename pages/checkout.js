@@ -52,8 +52,9 @@ export default function CheckoutPage() {
                <div className="flex justify-center items- center py-2 position-right">
                     <Nav />
                </div>
+
                <div>
-                    {shippingPrice !== 0 && (
+                    {shippingPrice === 0 && (
                          <div className="mt-5 flex h-screen flex-col items-center justify-center">
                               <div className="text-center flex justify-center text-2xl font-bold mb-2">
                                    No products in your shopping cart
