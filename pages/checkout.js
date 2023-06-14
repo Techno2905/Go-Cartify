@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import { ProductsContext } from "../components/ProductsContext";
-import Nav from "../components/nav";
+import Nav from "../components/Nav";
 import Link from "next/link";
 
 export default function CheckoutPage() {
