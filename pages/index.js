@@ -3,7 +3,7 @@ import Product from "../components/Product";
 import { findAllProducts } from "./api/products";
 import Layout from "../components/Layout";
 import mongoose from "mongoose";
-import Nav from "../components/nav";
+import Nav from "../components/Nav";
 
 export default function Home({ products }) {
      const [phrase, setPhrase] = useState("");
