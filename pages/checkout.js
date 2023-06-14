@@ -81,7 +81,7 @@ export default function CheckoutPage() {
                                              key={productInfo.id}
                                              className="flex mb-5 items-center"
                                         >
-                                             <div className="bg-bg p-3 rounded-xl shrink-0">
+                                             <div className="bg-graay p-3 rounded-xl shrink-0">
                                                   <img
                                                        className="w-24 aspect-square"
                                                        src={
@@ -252,7 +252,7 @@ export default function CheckoutPage() {
                               value={selectedProducts.join(",")}
                          />
                          <div
-                              class="flex p-4 mb-2 mt-2 text-l text-white border border-purple-300 rounded-xl bg-bg font-semibold"
+                              class="flex p-4 mb-2 mt-2 text-l text-white border border-purple-300 rounded-xl bg-purple-50 font-semibold"
                               role="info"
                          >
                               <svg
