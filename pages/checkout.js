@@ -166,7 +166,7 @@ export default function CheckoutPage() {
                               }
                          })}
                </div>
-               {amount !== 0 && (
+               {productsInfos.length > 0 && (
                     <form
                          action="https://go-cartify.vercel.app/api/checkout"
                          method="POST"
