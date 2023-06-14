@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import Layout from "../components/Layout";
 import { ProductsContext } from "../components/ProductsContext";
 import Nav from "../components/Nav";
@@ -46,27 +46,27 @@ export default function CheckoutPage() {
      }
      const shippingPrice = subTotal > 0 ? 5 : 0;
      const total = subTotal + shippingPrice;
+
      return (
           <Layout>
                <div className="flex justify-center items- center py-2 position-right">
                     <Nav />
                </div>
                <div>
-                    {!productsInfos.length ||
-                         (!(selectedProducts.length > 0))(
-                              <div className="mt-5 flex h-screen flex-col items-center justify-center">
-                                   <div className="text-center flex justify-center text-2xl font-bold mb-2">
-                                        No products in your shopping cart
-                                   </div>
-                                   <div>
-                                        <Link className="border " href={"/"}>
-                                             <a className="bg-bg mt-2 p-4 text-center flex justify-center text-2xl text-white font-bold mb-2 border-2 border-bg rounded-2xl shadow-2xl">
-                                                  Click to continue shopping
-                                             </a>
-                                        </Link>
-                                   </div>
+                    {!productsInfos.length && (
+                         <div className="mt-5 flex h-screen flex-col items-center justify-center">
+                              <div className="text-center flex justify-center text-2xl font-bold mb-2">
+                                   No products in your shopping cart
                               </div>
-                         )}
+                              <div>
+                                   <Link className="border " href={"/"}>
+                                        <a className="bg-bg mt-2 p-4 text-center flex justify-center text-2xl text-white font-bold mb-2 border-2 border-bg rounded-2xl shadow-2xl">
+                                             Click to continue shopping
+                                        </a>
+                                   </Link>
+                              </div>
+                         </div>
+                    )}
                     {productsInfos.length &&
                          productsInfos.map((productInfo) => {
                               const amount = selectedProducts.filter(
@@ -167,7 +167,7 @@ export default function CheckoutPage() {
                               }
                          })}
                </div>
-               {productsInfos.length > 0 && (
+               {selectedProducts.length > 0 && (
                     <form
                          action="https://go-cartify.vercel.app/api/checkout"
                          method="POST"
@@ -224,7 +224,7 @@ export default function CheckoutPage() {
                          </div>
                          <div className="mt-4">
                               <div className="flex mt-5">
-                                   <h3 className="grow text-gray-500  font-semibold">
+                                   <h3 className="grow text-gray-500 font-semibold">
                                         Subtotal:
                                    </h3>
                                    <h3 className="font-bold">${subTotal}</h3>
@@ -237,25 +237,19 @@ export default function CheckoutPage() {
                                         ${shippingPrice}
                                    </h3>
                               </div>
-                              <div className="flex mt-2 border-t-2 border-dashed border-bg">
+                              <div className="flex mt-2">
                                    <h3 className="grow text-gray-500 font-semibold">
                                         Total:
                                    </h3>
                                    <h3 className="font-bold">${total}</h3>
                               </div>
+                              <button
+                                   type="submit"
+                                   className="bg-primary hover:bg-primary-dark text-white mt-4 py-2 px-4 rounded-lg font-bold"
+                              >
+                                   Checkout
+                              </button>
                          </div>
-
-                         <input
-                              type="hidden"
-                              name="products"
-                              value={selectedProducts.join(",")}
-                         />
-                         <button
-                              type="submit"
-                              className="bg-primary px-5 py-3 rounded-xl text-white text-xl font-bold w-full my-4 shadow-primary shadow-md "
-                         >
-                              Pay ${total}
-                         </button>
                     </form>
                )}
           </Layout>
