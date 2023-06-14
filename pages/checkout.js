@@ -53,7 +53,7 @@ export default function CheckoutPage() {
                     <Nav />
                </div>
                <div>
-                    {!productsInfos.length && (
+                    {shippingPrice !== 0 && (
                          <div className="mt-5 flex h-screen flex-col items-center justify-center">
                               <div className="text-center flex justify-center text-2xl font-bold mb-2">
                                    No products in your shopping cart
