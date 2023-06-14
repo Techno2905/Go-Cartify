@@ -270,9 +270,15 @@ export default function CheckoutPage() {
                               </svg>
                               <span class="sr-only">Info</span>
                               <div>
-                                   <span class="font-medium">Alert!</span> You
-                                   can use Card number : 4242 4242 4242 4242, to
-                                   mimic a sucessful purchase on Stripe
+                                   <span class="font-bold">Alert!</span>
+                                   <span>You can use Card number :</span>
+                                   <span class="font-bold">
+                                        4242 4242 4242 4242
+                                   </span>
+                                   <span>
+                                        , to mimic a sucessful purchase on
+                                        Stripe
+                                   </span>
                               </div>
                          </div>
                          <button
