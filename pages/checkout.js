@@ -53,20 +53,21 @@ export default function CheckoutPage() {
                     <Nav />
                </div>
                <div>
-                    {!productsInfos.length && (
-                         <div className="mt-5 flex h-screen flex-col items-center justify-center">
-                              <div className="text-center flex justify-center text-2xl font-bold mb-2">
-                                   No products in your shopping cart
+                    {!productsInfos.length ||
+                         (!(selectedProducts.length > 0))(
+                              <div className="mt-5 flex h-screen flex-col items-center justify-center">
+                                   <div className="text-center flex justify-center text-2xl font-bold mb-2">
+                                        No products in your shopping cart
+                                   </div>
+                                   <div>
+                                        <Link className="border " href={"/"}>
+                                             <a className="bg-bg mt-2 p-4 text-center flex justify-center text-2xl text-white font-bold mb-2 border-2 border-bg rounded-2xl shadow-2xl">
+                                                  Click to continue shopping
+                                             </a>
+                                        </Link>
+                                   </div>
                               </div>
-                              <div>
-                                   <Link className="border " href={"/"}>
-                                        <a className="bg-bg mt-2 p-4 text-center flex justify-center text-2xl text-white font-bold mb-2 border-2 border-bg rounded-2xl shadow-2xl">
-                                             Click to continue shopping
-                                        </a>
-                                   </Link>
-                              </div>
-                         </div>
-                    )}
+                         )}
                     {productsInfos.length &&
                          productsInfos.map((productInfo) => {
                               const amount = selectedProducts.filter(
