@@ -75,7 +75,7 @@ export default function CheckoutPage() {
                                    return null;
                               } else {
                                    return (
-                                        <div>
+                                        <div key={productInfo.id}>
                                              <div
                                                   key={productInfo.id}
                                                   className="flex mb-5 items-center"
