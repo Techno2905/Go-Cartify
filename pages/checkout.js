@@ -252,8 +252,8 @@ export default function CheckoutPage() {
                               value={selectedProducts.join(",")}
                          />
                          <div
-                              class="flex p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
-                              role="alert"
+                              class="flex p-4 mb-2 mt-2 text-l text-white border border-purple-300 rounded-xl bg-bg font-semibold"
+                              role="info"
                          >
                               <svg
                                    aria-hidden="true"
